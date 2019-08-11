@@ -249,5 +249,3 @@ convert -size $size2 \
 	\
 	$infile -compose DstOver -composite \
 	$outfile
-
-

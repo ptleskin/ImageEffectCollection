@@ -6,6 +6,7 @@
 # Creates text element with a transparent background
 # Usage:
 # bash effectText6.bash 'Lorem...' bground.png output.png 50 Center
+#
 # For solid background:
 # bash effectText6.bash 'Neon Ipsum …' '-size 600x400 xc:none' output.png 90 NorthWest
 

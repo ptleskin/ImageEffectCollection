@@ -288,10 +288,3 @@ convert -size $size xc:none \
     +swap -background none -flatten $outfile
 ) <$txtfile
 
-
-
-# 1/4-image:
-# convert imgs/star15.png -colorspace RGB +repage -crop 50%x50%+0+0 -background black -alpha remove -rotate 180 imgs/tmp.jpg
-#
-# convert level0.png +depth -filter Cubic -resize 4% -resize 2500% -auto-level -function polynomial -4,4,0 level0B.png
-
