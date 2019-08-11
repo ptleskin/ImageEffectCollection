@@ -1,7 +1,7 @@
 #### Image Effect Collection
 Collection of bash filter effect written in 2012 with [ImageMagick](https://www.imagemagick.org).
 
-##### Source Image
+##### Source Image (Gumböle Manor in Espoo, Finland)
 ![Gumböle Mansion in Espoo, Finland](https://raw.githubusercontent.com/ptleskin/ImageEffectCollection/master/images/gumbole_mansion.jpg)
 
 ##### Effect01.bash

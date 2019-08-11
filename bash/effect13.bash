@@ -24,7 +24,7 @@ size=`convert $infile -format %G info:`
 vignette='#888'
 
 
-# value between -100...100
+# Use values between -100...100
 brightness=0
 contrast=0
 
@@ -67,11 +67,3 @@ convert \( \( 	$infile ${haldfile} -hald-clut \
 	-compose Minus_Src -composite \
 	\) -brightness-contrast $brightness,$contrast \
 	$outfile
-
-
-# Inner Glow
-# original background '#AFAFAF'
-
-
-
-
