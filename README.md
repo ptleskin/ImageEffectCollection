@@ -53,3 +53,25 @@ Collection of bash filter effect written in 2012 with [ImageMagick](https://www.
 [![Effect16](https://raw.githubusercontent.com/ptleskin/ImageEffectCollection/master/result_images/effect16.jpg)](https://github.com/ptleskin/ImageEffectCollection/blob/master/bash/effect16.bash)
 
 
+#### Text Effects
+##### textEffect01.bash
+[![TextEffect01](https://raw.githubusercontent.com/ptleskin/ImageEffectCollection/master/result_images/textEffect01.jpg)](https://github.com/ptleskin/ImageEffectCollection/blob/master/bash/textEffect01.bash)
+
+##### textEffect02.bash
+[![TextEffect02](https://raw.githubusercontent.com/ptleskin/ImageEffectCollection/master/result_images/textEffect02.jpg)](https://github.com/ptleskin/ImageEffectCollection/blob/master/bash/textEffect02.bash)
+
+##### textEffect03.bash
+[![TextEffect03](https://raw.githubusercontent.com/ptleskin/ImageEffectCollection/master/result_images/textEffect03.jpg)](https://github.com/ptleskin/ImageEffectCollection/blob/master/bash/textEffect03.bash)
+
+##### textEffect04.bash
+[![TextEffect04](https://raw.githubusercontent.com/ptleskin/ImageEffectCollection/master/result_images/textEffect04.jpg)](https://github.com/ptleskin/ImageEffectCollection/blob/master/bash/textEffect04.bash)
+
+##### textEffect05.bash
+[![TextEffect05](https://raw.githubusercontent.com/ptleskin/ImageEffectCollection/master/result_images/textEffect05.jpg)](https://github.com/ptleskin/ImageEffectCollection/blob/master/bash/textEffect05.bash)
+
+##### textEffect06.bash
+[![TextEffect06](https://raw.githubusercontent.com/ptleskin/ImageEffectCollection/master/result_images/textEffect06.jpg)](https://github.com/ptleskin/ImageEffectCollection/blob/master/bash/textEffect06.bash)
+
+##### textEffect07.bash
+[![TextEffect07](https://raw.githubusercontent.com/ptleskin/ImageEffectCollection/master/result_images/textEffect07.jpg)](https://github.com/ptleskin/ImageEffectCollection/blob/master/bash/textEffect07.bash)
+
