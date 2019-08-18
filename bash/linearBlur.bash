@@ -3,7 +3,9 @@
 #	Linear Blur Effect
 #	Espoo, Finland, August 2019
 #	Petri Leskinen, petri.leskinen@icloud.com
-#
+#	
+#	My HTML5-version: https://pixelero.wordpress.com/2014/12/15/linear-and-radial-blur-with-html5/
+#	
 #	bash [options] input_image control_points output_image
 #	options:
 #	-b	blur radius in perpendicular direction at the second control point,
@@ -11,6 +13,10 @@
 #	-c	blur radius in parallel direction
 #		default: same as first radius
 #	-m	mode: 'linear' (default) or 'radial'
+#
+#	-x 	mixing: 'blend' (default), 'Lighten', or 'Darken' are recommended. 
+#				Generally can be any of ImageMagick blending methods 
+#				(http://www.imagemagick.org/Usage/compose/)
 #
 #	for example:
 #
@@ -30,8 +36,9 @@
 
 blur="16"
 mode="linear"
+blend="blend"
 
-while getopts "b:c:m:" option
+while getopts "b:c:m:x:" option
 do
 	case "${option}"
 		in
@@ -40,6 +47,8 @@ do
 		c) blur2=${OPTARG};;
 		
 		m) mode=${OPTARG};;
+		
+		x) blend=${OPTARG};;
 		
 	esac
 done
@@ -61,7 +70,6 @@ coords=$2
 
 #	controls attenuation of the blur
 f="0.5"
-		
 
 IFS=', ' read -r -a array <<< "$coords"
 
@@ -99,6 +107,7 @@ cm=""
 
 if [ $mode == "radial" ]
 then
+	#	RADIAL BLUR
 	while [ "$(bc <<< "$blur > $limit")" == "1" ] ||  [ "$(bc <<< "$blur2 > $limit")" == "1" ]
 	do
 		 if [ "$(bc <<< "$blur > $limit")" == "1" ]
@@ -133,7 +142,7 @@ then
 			cm+="( mpr:tmp -distort Affine $p0x,$p0y,$p0x,$p0y,$p1x,$p1y,$pXx,$pXy,$p2x,$p2y,$pYx,$pYy ) " 
 			
 			#	mix the two rotated images
-			cm+="-compose blend -define compose:args=50,50 -composite ) "
+			cm+="-compose $blend -define compose:args=50,50 -composite ) "
 			
 			#	blend with source image
 			cm+="-compose blend -define compose:args=50,50 -composite "
@@ -168,7 +177,7 @@ then
 			
 			cm+="( mpr:tmp -distort Affine $p0x,$p0y,$p0x,$p0y,$p1x,$p1y,$pXx,$pXy,$p2x,$p2y,$pYx,$pYy ) " 
 			
-			cm+="-compose blend -define compose:args=50,50 -composite ) "
+			cm+="-compose $blend -define compose:args=50,50 -composite ) "
 			cm+="-compose blend -define compose:args=50,50 -composite "
 			
 			blur2=$(bc <<< "scale=5;$blur2*$f")
@@ -177,6 +186,7 @@ then
 	
 else
 
+	#	LINEAR BLUR
 	while [ "$(bc <<< "$blur > $limit")" == "1" ] ||  [ "$(bc <<< "$blur2 > $limit")" == "1" ]
 	do
 		 if [ "$(bc <<< "$blur > $limit")" == "1" ]
@@ -191,10 +201,10 @@ else
 			pXy=$(bc <<< "scale=5;$p2y-$blur*$d1y")
 			cm+="( mpr:tmp -distort Affine $p0x,$p0y,$p0x,$p0y,$p1x,$p1y,$p1x,$p1y,$p2x,$p2y,$pXx,$pXy ) " 
 			
-			cm+="-compose blend -define compose:args=50,50 -composite ) "
+			cm+="-compose $blend -define compose:args=50,50 -composite ) "
 			cm+="-compose blend -define compose:args=50,50 -composite "
 			
-			blur=$(bc <<< "scale=5;$blur*$f")
+			blur=$(bc <<< "scale=5;$blur*$f") 
 		fi
 		
 		if [ "$(bc <<< "$blur2 > $limit")" == "1" ]
@@ -210,7 +220,7 @@ else
 			pXy=$(bc <<< "scale=5;$p2y-$blur2*$d2y")
 			cm+="( mpr:tmp -distort Affine $p0x,$p0y,$p0x,$p0y,$p1x,$p1y,$p1x,$p1y,$p2x,$p2y,$pXx,$pXy ) " 
 			
-			cm+="-compose blend -define compose:args=50,50 -composite ) "
+			cm+="-compose $blend -define compose:args=50,50 -composite ) "
 			cm+="-compose blend -define compose:args=50,50 -composite "
 			
 			blur2=$(bc <<< "scale=5;$blur2*$f")
