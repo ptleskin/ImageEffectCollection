@@ -5,9 +5,9 @@
 #
 # Creates text element with a transparent background
 # Usage:
-# bash effectText3.bash 'Gumböle Manor' ../images/gumbole_mansion.jpg output.png 160 SouthWest
+# bash textEffect01.bash 'Gumböle Manor' ../images/gumbole_mansion.jpg output.png 160 SouthWest
 # For solid background:
-# bash effectText3.bash 'Neon Ipsum …' '-size 600x400 xc:none' output.png 90 NorthWest
+# bash textEffect01.bash 'Neon Ipsum …' '-size 600x400 xc:none' output.png 90 NorthWest
 
 
 label=$1    # text string ...
